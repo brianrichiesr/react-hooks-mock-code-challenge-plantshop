@@ -43,10 +43,10 @@
       "price": 55
     },
     {
-      "name": "cactus",
-      "image": "https://images.unsplash.com/photo-1554631221-f9603e6808be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FjdHVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-      "price": "15",
-      "id": 8
+      "name": "mini cactus",
+      "image": "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhY3R1c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "price": "8",
+      "id": 9
     }
   ]
 }

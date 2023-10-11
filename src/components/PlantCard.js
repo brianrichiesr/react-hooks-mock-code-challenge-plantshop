@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-function PlantCard({ plant }) {
+function PlantCard({ plant, removePlant }) {
   const [inStock, setInStock] = useState(true);
-  const handleClick = (e) => {
+  const toggleInStock = (e) => {
     e.stopPropagation();
     setInStock(currentValue => !currentValue);
+  }
+  const handleDelete = () => {
+    removePlant(plant.id);
   }
   return (
     <li className="card">
@@ -12,10 +15,11 @@ function PlantCard({ plant }) {
       <h4>{plant.name}</h4>
       <p>Price: {plant.price}</p>
       {inStock ? (
-        <button onClick={handleClick} className="primary">In Stock</button>
+        <button onClick={toggleInStock} className="primary">In Stock</button>
       ) : (
-        <button onClick={handleClick}>Out of Stock</button>
+        <button onClick={toggleInStock}>Out of Stock</button>
       )}
+      <button className="delete" onClick={handleDelete}>Delete</button>
     </li>
   );
 }

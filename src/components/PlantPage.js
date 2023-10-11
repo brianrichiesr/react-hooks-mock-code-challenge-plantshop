@@ -44,17 +44,35 @@ function PlantPage() {
     })
     .catch(err => alert(err))
   }
+
   const searchForPlants = (plantStr) => {
     const newPlantList = [...unmodifiedPlantList].filter(plant => {
       return plant.name.toLowerCase().includes(plantStr.toLowerCase());
     })
     setPlants(newPlantList)
   }
+
+  const removePlantFromLists = (collection, setter, id) => {
+    const newList = collection.filter(plant => {
+      return plant.id !== id;
+    })
+
+    setter(newList)
+  }
+
+  const removePlant = (id) => {
+    fetch(`${Url}/${id}`, {
+      method: "DELETE"
+    })
+    removePlantFromLists(plants, setPlants, id)
+    removePlantFromLists(unmodifiedPlantList, setUnmodifiedPlantList, id)
+  }
+
   return (
     <main>
       <NewPlantForm addPlantToList={addPlantToList} />
       <Search searchForPlants={searchForPlants} />
-      <PlantList plants={plants} />
+      <PlantList plants={plants} removePlant={removePlant} />
     </main>
   );
 }
